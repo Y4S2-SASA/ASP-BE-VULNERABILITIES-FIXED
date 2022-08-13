@@ -15,11 +15,11 @@ Connection();
 
 // middlewares
 App.use(express.json());
-App.use(cors());
+App.use(cors({origin: '*'}));
 
 // routes
 App.use("/register", userRouter);
 App.use("/login", authRouter);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 App.listen(port, console.log(portCon(`🚀 Server listening on PORT ${process.env.PORT} 🚀`)));
