@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const App = express();
 const cors = require("cors");
-const Connection = require("./db");
+// const Connection = require("./db");
 const chalk = require("chalk");
 
 //just a console style. :(
