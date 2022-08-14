@@ -6,6 +6,8 @@ import {
     deleteItemService
 } from './item.service.js';
 import { register, login } from './user.service.js';
+import { saveOrderService } from './order.service.js';
+
 
 export {
     //  Item
@@ -17,9 +19,9 @@ export {
 
      // User
      login,
-     register
+     register,
 
-    // Reservation
-
+    // Order
+    saveOrderService
     // Question
 }

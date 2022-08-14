@@ -7,9 +7,12 @@ const OrderItemSchema = new Schema({
         type: String,
         required: true
     },
-    userId:{
+    sellerId:{
         type: String,
         required: true
+    },
+    sellerName:{
+        type: String,
     },
     itemName:{
         type: String
@@ -47,7 +50,7 @@ const OrderSchema = new Schema({
             type: String
         },
 
-        items : [OrderItemSchema],
+        items : OrderItemSchema,
 
         status: {
             type: String
@@ -59,4 +62,4 @@ const OrderSchema = new Schema({
     { timestamps: true }
 );
 
-export const Order = mongoose.mode("Orders", OrderSchema);
+export const Order = mongoose.model("Orders", OrderSchema);
