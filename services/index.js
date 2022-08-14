@@ -5,6 +5,7 @@ import {
     updateItemService, 
     deleteItemService
 } from './item.service.js';
+import { register, login } from './user.service.js';
 
 export {
     //  Item
@@ -15,6 +16,8 @@ export {
     deleteItemService,
 
      // User
+     login,
+     register
 
     // Reservation
 

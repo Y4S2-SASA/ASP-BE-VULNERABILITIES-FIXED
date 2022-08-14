@@ -3,10 +3,9 @@ import express from "express";
 import cors from "cors";
 import {connect} from './utils/dbConnect.js';
 import apiRouter from './routes/index.js';
-
 import chalk from "chalk";
 
-const portCon = chalk.bold.red;
+const portCon = chalk.blue.bgWhite.bold;
 
 const App = express();
 App.use(express.json());

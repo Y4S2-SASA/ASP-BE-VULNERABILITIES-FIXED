@@ -1,9 +1,7 @@
-import router from "express";
+import express from "express";
 import {login} from "../services/authService.js";
 
-// const router = require("express").Router();
-// const { login } = require("../services/authService.js");
+const userLoginRouter = express.Router();
+userLoginRouter.post('/login', login);
 
-router.post('/', login);
-
-export default router;
+export default userLoginRouter;
