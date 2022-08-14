@@ -21,6 +21,7 @@ export const getItem= (id) =>
 
 export const getItems = () =>
     Item.find()
+    .populate("createdBy")
     .then((item) => {
       return Promise.resolve(item);
     })
