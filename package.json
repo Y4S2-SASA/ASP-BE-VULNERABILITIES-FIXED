@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "unique-username-generator": "^1.1.1"
   }
 }
