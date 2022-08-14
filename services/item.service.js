@@ -8,9 +8,9 @@ import {
 import AppError from "../utils/appError.js";
 
 export const saveItemService = async (data) => {
-    const { name, price, quantity, description, imageUrl } = data;
+    const { name, price, quantity, description, imageUrl, createdBy } = data;
     try {
-      await saveItem({ name, price, quantity, description, imageUrl});
+      await saveItem({ name, price, quantity, description, imageUrl, createdBy});
       return Promise.resolve("Successfully saved Item.");
     } catch (err) {
       throw new AppError(err.message, err.status);
