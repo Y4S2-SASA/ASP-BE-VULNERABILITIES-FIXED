@@ -1,6 +1,6 @@
-const { User } = require("../models/user");
-const bcrypt = require("bcrypt");
-const Joi = require("joi");
+import {User} from "../models/user.model";
+import bcrypt from "bcrypt";
+import joi from "joi";
 
 const login = async (req, res) => {
 	try {
@@ -35,4 +35,4 @@ const validateUserData = (data) => {
 	return schema.validate(data);
 };
 
-module.exports = { login };
+export { login };

@@ -1,6 +1,9 @@
-const router = require("express").Router();
-const { login } = require("../services/authService.js");
+import router from "express";
+import {login} from "../services/authService.js";
+
+// const router = require("express").Router();
+// const { login } = require("../services/authService.js");
 
 router.post('/', login);
 
-module.exports = router;
+export default router;

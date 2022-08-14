@@ -1,11 +1,14 @@
-require("dotenv").config();
-const express = require("express");
+import "dotenv/config";
+import express from "express";
+
 const App = express();
 const cors = require("cors");
-const Connection = require("./db");
-const userRouter = require("./routes/users");
-const authRouter = require("./routes/auth");
-const chalk = require("chalk");
+
+import { Connection } from "./utils/db";
+import userRouter from "./routes/user";
+import authRouter from "./routes/auth";
+
+import chalk from "chalk";
 
 //just a console style. :(
 const portCon = chalk.bold.red;

@@ -1,5 +1,5 @@
-const { User, validate } = require("../models/user");
-const bcrypt = require("bcrypt");
+import {User, validate} from "../models/user.model";
+import bcrypt from "bcrypt";
 
 const register = async (req, res) => {
 	try {
@@ -26,4 +26,4 @@ const register = async (req, res) => {
 	}
 };
 
-module.exports = { register };
+export { register };
