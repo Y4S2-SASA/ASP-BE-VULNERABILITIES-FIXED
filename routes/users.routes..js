@@ -1,9 +1,8 @@
-import router from "express";
-import {register} from "../services/userService.js";
+import express from "express";
+import { register, login } from "../services/index.js";
 
-// const router = require("express").Router();
-// const { register } = require("../services/userService.js");
+const userRouter = express.Router();
+userRouter.post('/register', register);
+userRouter.post('/login', login);
 
-router.post('/', register);
-
-module.exports = router;
+export default userRouter;
