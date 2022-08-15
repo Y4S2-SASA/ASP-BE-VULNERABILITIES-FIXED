@@ -1,12 +1,8 @@
 import {User, validate} from "../models/index.js";
 import bcrypt from "bcrypt";
 import Joi from "joi";
-import {
-	deleteUser,
-	getUser,
-	getUsers,
-	updateUser
-} from "../repository/index.js";
+import AppError from "../utils/appError.js";
+import { jsonResponse } from "../utils/serviceUtilities.js";
 
 const validateUserData = (data) => {
 	const schema = Joi.object({
@@ -66,38 +62,46 @@ export const register = async (req, res) => {
 	}
 };
 
-export const getUserService = async (id) => {
-    try {
-      const user = await getUser(id);
-      return Promise.resolve(user);
-    } catch (err) {
-      throw new AppError(err.message, err.status);
-    }
-};
-  
-export const getUsersService = async () => {
-    try {
-      const user = await getUsers();
-      return Promise.resolve(user);
-    } catch (err) {
-      throw new AppError(err.message, err.status);
-    }
-};
-  
-export const updateUserService = async (id, data) => {
-    try {
-      const user = await updateUser(id, data);
-      return Promise.resolve(user);
-    } catch (err) {
-      throw new AppError(err.message, err.status);
-    }
-};
-  
-export const deleteUserService = async (id) => {
-    try {
-      const user = await deleteUser(id);
-      return Promise.resolve(user);
-    } catch (err) {
-      throw new AppError(err.message, err.status);
-    }
-};
+export const findUsers = (req, res) => {
+    const filter = {};
+    const { id, role } = req.query;
+        id && (filter.id = id);
+        role && (filter.role = role);
+    User.find(filter, (error, users) => {
+        error ?
+            res.status(500)
+                .json(jsonResponse(false, error, error._message)) :
+            res.status(201)
+                .json(jsonResponse(true, users));
+        })
+}
+
+export const updateUser = (req, res) => {
+    const filter = { id: req.query.id || 'inavlidId' };
+    const getUpdatedData = { new: true };
+
+    User.findOneAndUpdate(filter, req.body, getUpdatedData, (error, updatedUser) => {
+        !updatedUser ? 
+            res.status(404)
+                .json(jsonResponse(false, updatedUser, "User not found!")) :
+            error ? 
+                res.status(400)
+                    .json(jsonResponse(false, error, error._message)) :
+                res.status(200)
+                    .json(jsonResponse(true, updatedUser));
+    });       
+}
+
+export const deleteUser = (req, res) => {
+    const filter = { id: req.query.id || 'inavlidId' };
+    User.findOneAndDelete(filter, (error, deletedUser) => {
+        !deletedUser ? 
+            res.status(404)
+                .json(jsonResponse(false, deletedUser, "User not found!")) :
+            error ? 
+                res.status(400)
+                    .json(jsonResponse(false, error, error._message)) :
+                res.status(200)
+                    .json(jsonResponse(true, deletedUser));
+    });       
+}

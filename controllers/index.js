@@ -5,12 +5,6 @@ import {
     updateItem,
     deleteItem
 } from './item.controller.js';
-import {
-    deleteUser,
-    fetchUser,
-    fetchUsers,
-    updateUser
-} from './user.controller.js';
 import { saveOrder } from './order.controller.js';
 
 
@@ -23,10 +17,6 @@ export {
     deleteItem,
 
     // User
-    deleteUser,
-    fetchUser,
-    fetchUsers,
-    updateUser,
     
     // Reservation
 

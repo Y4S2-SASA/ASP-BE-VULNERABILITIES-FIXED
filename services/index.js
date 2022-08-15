@@ -8,12 +8,10 @@ import {
 import {
     register,
     login,
-    getUserService,
-    getUsersService,
-    updateUserService,
-    deleteUserService
+    updateUser,
+    deleteUser,
+    findUsers
 } from './user.service.js';
-import { register, login } from './user.service.js';
 import { saveOrderService } from './order.service.js';
 
 export {
@@ -27,14 +25,11 @@ export {
      // User
     login,
     register,
-    getUserService,
-    getUsersService,
-    updateUserService,
-    deleteUserService,
+    updateUser,
+    deleteUser,
+    findUsers,
 
     // Reservation
-     login,
-     register,
 
     // Order
     saveOrderService
