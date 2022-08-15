@@ -5,6 +5,12 @@ import {
     updateItem,
     deleteItem
 } from './item.controller.js';
+import {
+    deleteUser,
+    fetchUser,
+    fetchUsers,
+    updateUser
+} from './user.controller.js';
 
 export {
     // Item
@@ -15,7 +21,11 @@ export {
     deleteItem,
 
     // User
-
+    deleteUser,
+    fetchUser,
+    fetchUsers,
+    updateUser
+    
     // Reservation
 
     // Question

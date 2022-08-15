@@ -66,9 +66,9 @@ export const register = async (req, res) => {
 	}
 };
 
-export const getUserService = async (_id) => {
+export const getUserService = async (id) => {
     try {
-      const user = await getUser(_id);
+      const user = await getUser(id);
       return Promise.resolve(user);
     } catch (err) {
       throw new AppError(err.message, err.status);
@@ -84,18 +84,18 @@ export const getUsersService = async () => {
     }
 };
   
-export const updateUserService = async (_id, data) => {
+export const updateUserService = async (id, data) => {
     try {
-      const user = await updateUser(_id, data);
+      const user = await updateUser(id, data);
       return Promise.resolve(user);
     } catch (err) {
       throw new AppError(err.message, err.status);
     }
 };
   
-export const deleteUserService = async (_id) => {
+export const deleteUserService = async (id) => {
     try {
-      const user = await deleteUser(_id);
+      const user = await deleteUser(id);
       return Promise.resolve(user);
     } catch (err) {
       throw new AppError(err.message, err.status);

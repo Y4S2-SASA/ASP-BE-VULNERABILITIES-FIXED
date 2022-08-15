@@ -5,7 +5,14 @@ import {
     updateItemService, 
     deleteItemService
 } from './item.service.js';
-import { register, login } from './user.service.js';
+import {
+    register,
+    login,
+    getUserService,
+    getUsersService,
+    updateUserService,
+    deleteUserService
+} from './user.service.js';
 
 export {
     //  Item
@@ -16,8 +23,12 @@ export {
     deleteItemService,
 
      // User
-     login,
-     register
+    login,
+    register,
+    getUserService,
+    getUsersService,
+    updateUserService,
+    deleteUserService
 
     // Reservation
 
