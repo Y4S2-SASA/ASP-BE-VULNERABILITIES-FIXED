@@ -1,4 +1,5 @@
 import { saveItem, getItem, getItems, updateItem, deleteItem } from './item.repository.js';
+import { deleteUser, getUser, getUsers, updateUser } from './user.repository.js';
 
 export {
     //  Item
@@ -9,7 +10,8 @@ export {
     deleteItem,
 
     // User
-
+    deleteUser, getUser, getUsers, updateUser
+    
     // Reservation
 
     // Question

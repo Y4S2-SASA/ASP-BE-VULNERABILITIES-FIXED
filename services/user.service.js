@@ -6,7 +6,7 @@ import {
 	getUser,
 	getUsers,
 	updateUser
-} from "../repository/user.repository.js";
+} from "../repository/index.js";
 
 const validateUserData = (data) => {
 	const schema = Joi.object({
