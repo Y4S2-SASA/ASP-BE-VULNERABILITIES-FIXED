@@ -3,20 +3,9 @@ import AppError from "../utils/appError.js";
 
 export const saveOrderService = async (data) =>{
     const {
-        orderId, 
-        userId, 
-        firstName, 
-        lastName, 
-        email, 
-        contactNo,
-        items:{
-            itemId,
-            sellerId,
-            sellerName,
-            quantity,
-            price,
-            imageUrl
-        },
+        buyer,
+        item,
+        quantity,
         status,
         total
     } = data;

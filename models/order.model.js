@@ -2,61 +2,23 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const OrderItemSchema = new Schema({
-    itemId:{
-        type: String,
-        required: true
-    },
-    sellerId:{
-        type: String,
-        required: true
-    },
-    sellerName:{
-        type: String,
-    },
-    itemName:{
-        type: String
-    },
-    quantity: {
-        type: Number
-    },
-    price: {
-        type: String
-    },
-    imageUrl: {
-        type: String
-    }
-})
-
 const OrderSchema = new Schema({
-        orderId: {
-            type: String,
-            required: true
+        buyer:{
+            type: Schema.Types.ObjectId,
+            ref: "user"
         },
-        userId:{
-            type: String,
-            required: true
+        item :{
+            type: Schema.Types.ObjectId,
+            ref: "Item"
         },
-        firstName: {
-            type: String
+        quantity:{
+            type: Number
         },
-        lastName: {
-            type: String
-        },
-        email: {
-            type: String
-        },
-        contactNo: {
-            type: String
-        },
-
-        items : OrderItemSchema,
-
         status: {
             type: String
         },
         total:{
-            type: String
+            type: Number
         }
     },
     { timestamps: true }
