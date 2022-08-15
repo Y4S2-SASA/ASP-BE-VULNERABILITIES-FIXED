@@ -1,6 +1,12 @@
 import {User, validate} from "../models/index.js";
 import bcrypt from "bcrypt";
 import Joi from "joi";
+import {
+	deleteUser,
+	getUser,
+	getUsers,
+	updateUser
+} from "../repository/user.repository.js";
 
 const validateUserData = (data) => {
 	const schema = Joi.object({
@@ -58,4 +64,40 @@ export const register = async (req, res) => {
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
+};
+
+export const getUserService = async (_id) => {
+    try {
+      const user = await getUser(_id);
+      return Promise.resolve(user);
+    } catch (err) {
+      throw new AppError(err.message, err.status);
+    }
+};
+  
+export const getUsersService = async () => {
+    try {
+      const user = await getUsers();
+      return Promise.resolve(user);
+    } catch (err) {
+      throw new AppError(err.message, err.status);
+    }
+};
+  
+export const updateUserService = async (_id, data) => {
+    try {
+      const user = await updateUser(_id, data);
+      return Promise.resolve(user);
+    } catch (err) {
+      throw new AppError(err.message, err.status);
+    }
+};
+  
+export const deleteUserService = async (_id) => {
+    try {
+      const user = await deleteUser(_id);
+      return Promise.resolve(user);
+    } catch (err) {
+      throw new AppError(err.message, err.status);
+    }
 };
