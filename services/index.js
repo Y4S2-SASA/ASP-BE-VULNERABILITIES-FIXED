@@ -13,6 +13,8 @@ import {
     updateUserService,
     deleteUserService
 } from './user.service.js';
+import { register, login } from './user.service.js';
+import { saveOrderService } from './order.service.js';
 
 export {
     //  Item
@@ -28,9 +30,13 @@ export {
     getUserService,
     getUsersService,
     updateUserService,
-    deleteUserService
+    deleteUserService,
 
     // Reservation
+     login,
+     register,
 
+    // Order
+    saveOrderService
     // Question
 }
