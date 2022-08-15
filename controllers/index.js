@@ -5,6 +5,8 @@ import {
     updateItem,
     deleteItem
 } from './item.controller.js';
+import { saveOrder } from './order.controller.js';
+
 
 export {
     // Item
@@ -16,7 +18,8 @@ export {
 
     // User
 
-    // Reservation
+    // Order
+    saveOrder,
 
     // Question
 }
