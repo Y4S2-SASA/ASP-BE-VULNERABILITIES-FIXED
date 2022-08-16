@@ -62,6 +62,17 @@ export const register = async (req, res) => {
 	}
 };
 
+export const findUser = (req, res) => {
+    const filter = { id: req.query.id || 'inavlidId' };
+    User.findOne(filter, (error, users) => {
+        error ?
+            res.status(500)
+                .json(jsonResponse(false, error, error._message)) :
+            res.status(201)
+                .json(jsonResponse(true, users));
+        })
+}
+
 export const findUsers = (req, res) => {
     const filter = {};
     const { id, role } = req.query;

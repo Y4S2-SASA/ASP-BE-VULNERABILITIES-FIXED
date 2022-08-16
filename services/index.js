@@ -10,7 +10,7 @@ import {
     login,
     updateUser,
     deleteUser,
-    findUsers
+    findUser
 } from './user.service.js';
 import { saveOrderService } from './order.service.js';
 
@@ -27,6 +27,7 @@ export {
     register,
     updateUser,
     deleteUser,
+    findUser,
     findUsers,
 
     // Reservation
