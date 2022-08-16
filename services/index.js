@@ -5,9 +5,14 @@ import {
     updateItemService, 
     deleteItemService
 } from './item.service.js';
-import { register, login } from './user.service.js';
+import {
+    register,
+    login,
+    updateUser,
+    deleteUser,
+    findUsers
+} from './user.service.js';
 import { saveOrderService } from './order.service.js';
-
 
 export {
     //  Item
@@ -18,8 +23,13 @@ export {
     deleteItemService,
 
      // User
-     login,
-     register,
+    login,
+    register,
+    updateUser,
+    deleteUser,
+    findUsers,
+
+    // Reservation
 
     // Order
     saveOrderService

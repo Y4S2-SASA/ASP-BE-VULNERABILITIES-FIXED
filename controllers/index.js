@@ -17,6 +17,8 @@ export {
     deleteItem,
 
     // User
+    
+    // Reservation
 
     // Order
     saveOrder,
