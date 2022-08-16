@@ -5,7 +5,13 @@ import {
     updateItem,
     deleteItem
 } from './item.controller.js';
-import { saveOrder } from './order.controller.js';
+import { 
+    saveOrder, 
+    getUserOrders, 
+    getUserOrder, 
+    updateOrder, 
+    deleteOrder 
+} from './order.controller.js';
 
 
 export {
@@ -18,10 +24,12 @@ export {
 
     // User
     
-    // Reservation
-
     // Order
     saveOrder,
+    getUserOrders,
+    getUserOrder,
+    updateOrder,
+    deleteOrder,
 
     // Question
 }
