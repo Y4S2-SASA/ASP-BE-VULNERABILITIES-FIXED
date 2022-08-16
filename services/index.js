@@ -10,7 +10,8 @@ import {
     login,
     updateUser,
     deleteUser,
-    findUser
+    findUser,
+    findUsers
 } from './user.service.js';
 import { saveOrderService } from './order.service.js';
 
