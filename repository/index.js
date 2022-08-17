@@ -23,7 +23,7 @@ export {
     getUserOrders,
     getUserOrder,
     updateOrder,
-    deleteOrder
+    deleteOrder,
 
     // Question
     saveQuestion,
