@@ -47,7 +47,7 @@ export {
     getUserOrdersService,
     getUserOrderService,
     updateOrderService,
-    deleteOrderService
+    deleteOrderService,
     
     // Question
     saveQuestionService, 
