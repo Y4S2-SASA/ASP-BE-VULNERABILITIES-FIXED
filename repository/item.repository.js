@@ -12,6 +12,11 @@ export const saveItem = (data) =>
 
 export const getItem= (id) =>
     Item.findById(id)
+    .populate("createdBy",{
+        _id:1,
+        firstName:1,
+        lastName:1,
+    })
     .then((item) => {
       return Promise.resolve(item);
     })
@@ -21,7 +26,11 @@ export const getItem= (id) =>
 
 export const getItems = () =>
     Item.find()
-    .populate("createdBy")
+    .populate("createdBy",{
+      _id:1,
+      firstName:1,
+      lastName:1,
+    })
     .then((item) => {
       return Promise.resolve(item);
     })
