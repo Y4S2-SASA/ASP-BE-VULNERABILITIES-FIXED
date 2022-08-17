@@ -1,4 +1,5 @@
 import { saveItem, getItem, getItems, updateItem, deleteItem } from './item.repository.js';
+import { saveQuestion, getQuestion, getQuestions, updateQuestion, deleteQuestion } from './question.repository.js';
 
 import { saveOrder } from './order.repository.js';
 
@@ -15,7 +16,12 @@ export {
     // Reservation
 
     // Order
-    saveOrder
+    saveOrder,
 
     // Question
+    saveQuestion,
+    getQuestion,
+    getQuestions,
+    updateQuestion,
+    deleteQuestion
 }

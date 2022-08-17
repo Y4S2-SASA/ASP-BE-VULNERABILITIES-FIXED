@@ -13,6 +13,13 @@ import {
     findUsers
 } from './user.service.js';
 import { saveOrderService } from './order.service.js';
+import {
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService
+} from './question.service.js';
 
 export {
     //  Item
@@ -32,6 +39,12 @@ export {
     // Reservation
 
     // Order
-    saveOrderService
+    saveOrderService,
+
     // Question
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService,
 }
