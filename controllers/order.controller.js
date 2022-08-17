@@ -1,11 +1,70 @@
-import { saveOrderService } from "../services/index.js";
+import { 
+    saveOrderService,
+    getUserOrdersService, 
+    getUserOrderService, 
+    updateOrderService, 
+    deleteOrderService
+} from "../services/index.js";
 import Success from "../utils/success.js";
 
+//Save order details controller
 export const saveOrder = async (req, res) =>{
     try{
         const order = await saveOrderService(req.body);
-        res.json(Success(order, "Successfully submitted order details!"));
+        res.json(Success(order, "Successfully submitted order details!"))
     }catch(error){
-        res.status(error.status).json(error.message);
+        res.status(500).json(error.message);
+    }
+};
+
+//Get user's orders controller
+export const getUserOrders = async(req, res) =>{
+    try{
+        const orders = await getUserOrdersService(req.params.buyer);
+        orders.length === 0 ?
+            res.status(404).json("No orders exist under the provided user!")
+        :
+            res.json(Success(orders, "Successfully fetched the user's orders!"))
+    }catch(error){
+        res.status(500).json(error.message);
+    }
+};
+
+//Get selected user order controller
+export const getUserOrder = async(req, res) =>{
+    try{
+        const order = await getUserOrderService(req.params.id);
+        !order ?
+            res.status(404).json("No order exist under the provided ID!")
+        :
+            res.json(Success(order, "Successfully fetched the order details!"))
+    }catch(error) {
+        res.status(500).json(error.message);
+    }
+};
+
+//Update order details controller
+export const updateOrder = async(req, res) =>{
+    try{
+        const order = await updateOrderService(req.params.id, req.body);
+        !order ?
+            res.status(404).json("No order exist under the provided ID!")
+        :
+            res.json(Success(order, "Successfully updated order details!"))
+    }catch(error) {
+        res.status(500).json(error.message);
+    }
+};
+
+//Delete order details controller
+export const deleteOrder = async(req, res) =>{
+    try{
+        const order = await deleteOrderService(req.params.id);
+        !order ?
+            res.status(404).json("No order exist under the provided ID!")
+        :
+            res.json(Success(order, "Successfully deleted order details!"))
+    }catch(error) {
+        res.status(500).json(error.message);
     }
 };
