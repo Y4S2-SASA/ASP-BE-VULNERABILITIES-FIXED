@@ -5,6 +5,13 @@ import {
     updateItem,
     deleteItem
 } from './item.controller.js';
+import {
+    saveQuestion,
+    getQuestion,
+    getQuestions,
+    updateQuestion,
+    deleteQuestion
+} from './question.controller.js';
 import { 
     saveOrder, 
     getUserOrders, 
@@ -32,4 +39,9 @@ export {
     deleteOrder,
 
     // Question
+    saveQuestion,
+    getQuestion,
+    getQuestions,
+    updateQuestion,
+    deleteQuestion,
 }

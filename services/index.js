@@ -12,6 +12,13 @@ import {
     deleteUser,
     findUsers
 } from './user.service.js';
+import {
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService
+} from './question.service.js';
 import { 
     saveOrderService, 
     getUserOrdersService, 
@@ -43,4 +50,9 @@ export {
     deleteOrderService
     
     // Question
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService,
 }
