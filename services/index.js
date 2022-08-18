@@ -5,9 +5,27 @@ import {
     updateItemService, 
     deleteItemService
 } from './item.service.js';
-import { register, login } from './user.service.js';
-import { saveOrderService } from './order.service.js';
-
+import {
+    register,
+    login,
+    updateUser,
+    deleteUser,
+    findUsers
+} from './user.service.js';
+import {
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService
+} from './question.service.js';
+import { 
+    saveOrderService, 
+    getUserOrdersService, 
+    getUserOrderService, 
+    updateOrderService, 
+    deleteOrderService 
+} from './order.service.js';
 
 export {
     //  Item
@@ -18,10 +36,23 @@ export {
     deleteItemService,
 
      // User
-     login,
-     register,
+    login,
+    register,
+    updateUser,
+    deleteUser,
+    findUsers,
 
     // Order
-    saveOrderService
+    saveOrderService,
+    getUserOrdersService,
+    getUserOrderService,
+    updateOrderService,
+    deleteOrderService,
+    
     // Question
+    saveQuestionService, 
+    getQuestionService, 
+    getQuestionsService, 
+    updateQuestionService, 
+    deleteQuestionService,
 }
