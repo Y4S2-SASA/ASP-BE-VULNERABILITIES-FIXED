@@ -5,7 +5,10 @@ const { Schema } = mongoose;
 const QuestionSchema = new Schema(
   {
     questionId: String,
-    createdBy: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+    },
     tags: Array,
     title: String,
     description: String,

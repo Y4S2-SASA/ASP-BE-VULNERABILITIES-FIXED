@@ -12,6 +12,13 @@ export const saveQuestion = (data) =>
 
 export const getQuestion= (id) =>
     Question.findById(id)
+    .populate("createdBy",{
+      _id:1,
+      firstName:1,
+      lastName:1,
+      username:1,
+      email:1
+    })
     .then((question) => {
       return Promise.resolve(question);
     })
@@ -21,6 +28,13 @@ export const getQuestion= (id) =>
 
 export const getQuestions = () =>
     Question.find()
+    .populate("createdBy",{
+      _id:1,
+      firstName:1,
+      lastName:1,
+      username:1,
+      email:1
+    })
     .then((question) => {
       return Promise.resolve(question);
     })
