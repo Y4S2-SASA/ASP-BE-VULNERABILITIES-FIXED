@@ -75,9 +75,10 @@ export const findUser = (req, res) => {
 
 export const findUsers = (req, res) => {
     const filter = {};
-    const { id, role } = req.query;
+    const { id, role, _id } = req.query;
         id && (filter.id = id);
         role && (filter.role = role);
+	_id && (filter._id = _id);
     User.find(filter, (error, users) => {
         error ?
             res.status(500)
