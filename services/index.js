@@ -10,6 +10,7 @@ import {
     login,
     updateUser,
     deleteUser,
+    findUser,
     findUsers
 } from './user.service.js';
 import {
@@ -40,6 +41,7 @@ export {
     register,
     updateUser,
     deleteUser,
+    findUser,
     findUsers,
 
     // Order

@@ -62,6 +62,17 @@ export const register = async (req, res) => {
 	}
 };
 
+export const findUser = (req, res) => {
+    const filter = { id: req.query.id || 'inavlidId' };
+    User.findOne(filter, (error, users) => {
+        error ?
+            res.status(500)
+                .json(jsonResponse(false, error, error._message)) :
+            res.status(201)
+                .json(jsonResponse(true, users));
+        })
+}
+
 export const findUsers = (req, res) => {
     const filter = {};
     const { id, role, _id } = req.query;
@@ -78,10 +89,10 @@ export const findUsers = (req, res) => {
 }
 
 export const updateUser = (req, res) => {
-    const filter = { id: req.query.id || 'inavlidId' };
+    const id = req.params.id;
     const getUpdatedData = { new: true };
 
-    User.findOneAndUpdate(filter, req.body, getUpdatedData, (error, updatedUser) => {
+    User.findByIdAndUpdate(id, req.body, getUpdatedData, (error, updatedUser) => {
         !updatedUser ? 
             res.status(404)
                 .json(jsonResponse(false, updatedUser, "User not found!")) :
@@ -94,8 +105,8 @@ export const updateUser = (req, res) => {
 }
 
 export const deleteUser = (req, res) => {
-    const filter = { id: req.query.id || 'inavlidId' };
-    User.findOneAndDelete(filter, (error, deletedUser) => {
+    const id = req.params.id;
+    User.findByIdAndDelete(id, (error, deletedUser) => {
         !deletedUser ? 
             res.status(404)
                 .json(jsonResponse(false, deletedUser, "User not found!")) :
