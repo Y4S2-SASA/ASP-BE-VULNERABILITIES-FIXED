@@ -20,6 +20,11 @@ import {
     updateQuestionService, 
     deleteQuestionService
 } from './question.service.js';
+import {
+    saveCommentService, 
+    getCommentsService, 
+    deleteCommentService
+} from './comment.service.js';
 import { 
     saveOrderService, 
     getUserOrdersService, 
@@ -57,4 +62,7 @@ export {
     getQuestionsService, 
     updateQuestionService, 
     deleteQuestionService,
+    saveCommentService,
+    getCommentsService,
+    deleteCommentService
 }

@@ -12,6 +12,11 @@ import {
     updateQuestion,
     deleteQuestion
 } from './question.controller.js';
+import {
+    saveComment,
+    getComments,
+    deleteComment
+} from './comment.controller.js';
 import { 
     saveOrder, 
     getUserOrders, 
@@ -44,4 +49,9 @@ export {
     getQuestions,
     updateQuestion,
     deleteQuestion,
+
+    // Comments
+    saveComment,
+    deleteComment,
+    getComments
 }
