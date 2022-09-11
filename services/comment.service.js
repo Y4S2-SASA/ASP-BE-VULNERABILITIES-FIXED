@@ -9,7 +9,7 @@ export const saveCommentService = async (data) => {
     const { questionId, createdBy, body } = data;
     try {
         await saveComment({ questionId, createdBy, body });
-        return Promise.resolve("Successfully saved Comment.");
+        return Promise.resolve({ questionId, createdBy, body });
     } catch (err) {
         throw new AppError(err.message, err.status);
     }
