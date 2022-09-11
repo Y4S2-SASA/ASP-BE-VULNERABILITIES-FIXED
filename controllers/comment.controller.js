@@ -16,7 +16,7 @@ export const saveComment = async (req, res) => {
   
   export const getComments = async (req, res) => {
     try {
-      const comments = await getCommentsService(req.params.questionId);
+      const comments = await getCommentsService(req.params.id);
       res.json(Success(comments, "Successfully fetched Comments."));
     } catch (err) {
       res.status(err.status).json(err.message);
