@@ -10,6 +10,7 @@ const CommentSchema = new Schema(
       ref: "user",
     },
     questionId: String,
+    body: String
   },
   { timestamps: true },
   { versionKey: false },
