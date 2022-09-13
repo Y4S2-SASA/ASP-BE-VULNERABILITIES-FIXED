@@ -30,7 +30,9 @@ import {
     getUserOrdersService, 
     getUserOrderService, 
     updateOrderService, 
-    deleteOrderService 
+    deleteOrderService,
+    getOrderRequestsService,
+    getReportDetailsService
 } from './order.service.js';
 
 export {
@@ -55,6 +57,8 @@ export {
     getUserOrderService,
     updateOrderService,
     deleteOrderService,
+    getOrderRequestsService,
+    getReportDetailsService,
     
     // Question
     saveQuestionService, 
