@@ -3,7 +3,9 @@ import {
     getUserOrders, 
     getUserOrder, 
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    getOrderRequests,
+    getReportDetails
 
 } from "../repository/index.js";
 import AppError from "../utils/appError.js";
@@ -13,6 +15,7 @@ export const saveOrderService = async (data) =>{
     const {
         buyer,
         item,
+        seller,
         orderId,
         quantity,
         status,
@@ -65,3 +68,23 @@ export const deleteOrderService = async (id) =>{
         throw new AppError(error.mesage, error.status);
     }
 };
+
+//Fetch Order requests
+export const getOrderRequestsService = async (seller) =>{
+    try{
+        const orders = await getOrderRequests(seller);
+        return Promise.resolve(orders)
+    }catch(error) {
+        throw new AppError(error.message, error.status);
+    }
+};
+
+//Fetch report details service
+export const getReportDetailsService = async(startDate, endDate) =>{
+    try{
+        const orders = await getReportDetails(startDate, endDate);
+        return Promise.resolve(orders)
+    }catch(error) {
+        throw new AppError(error.message, error.status);
+    }
+}
