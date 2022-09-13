@@ -14,6 +14,10 @@ const OrderSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "Item"
         },
+        seller:{
+            type: Schema.Types.ObjectId,
+            ref: "user"
+        },
         quantity:{
             type: Number
         },

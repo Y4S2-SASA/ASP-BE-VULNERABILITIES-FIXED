@@ -22,7 +22,8 @@ import {
     getUserOrders, 
     getUserOrder, 
     updateOrder, 
-    deleteOrder 
+    deleteOrder,
+    getOrderRequests, 
 } from './order.controller.js';
 
 
@@ -42,6 +43,7 @@ export {
     getUserOrder,
     updateOrder,
     deleteOrder,
+    getOrderRequests,
 
     // Question
     saveQuestion,

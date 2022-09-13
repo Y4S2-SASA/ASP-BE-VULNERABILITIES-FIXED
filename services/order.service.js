@@ -3,7 +3,8 @@ import {
     getUserOrders, 
     getUserOrder, 
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    getOrderRequests
 
 } from "../repository/index.js";
 import AppError from "../utils/appError.js";
@@ -63,5 +64,15 @@ export const deleteOrderService = async (id) =>{
         return Promise.resolve(order);
     }catch(error){
         throw new AppError(error.mesage, error.status);
+    }
+};
+
+//Fetch Order requests
+export const getOrderRequestsService = async (seller) =>{
+    try{
+        const orders = await getOrderRequests(seller);
+        return Promise.resolve(orders)
+    }catch(error) {
+        throw new AppError(error.message, error.status);
     }
 };

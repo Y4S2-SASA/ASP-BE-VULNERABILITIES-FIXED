@@ -3,7 +3,8 @@ import {
     getUserOrdersService, 
     getUserOrderService, 
     updateOrderService, 
-    deleteOrderService
+    deleteOrderService,
+    getOrderRequestsService
 } from "../services/index.js";
 import Success from "../utils/success.js";
 
@@ -65,6 +66,19 @@ export const deleteOrder = async(req, res) =>{
         :
             res.json(Success(order, "Successfully deleted order details!"))
     }catch(error) {
+        res.status(500).json(error.message);
+    }
+};
+
+//Get order requests controller
+export const getOrderRequests = async(req, res) =>{
+    try{
+        const orders = await getOrderRequestsService(req.params.seller);
+        orders.length === 0 ?
+            res.status(404).json("No requests exist under the provided seller!")
+        :
+            res.json(Success(orders, "Successfully fetched the order requests!"))
+    }catch(error){
         res.status(500).json(error.message);
     }
 };

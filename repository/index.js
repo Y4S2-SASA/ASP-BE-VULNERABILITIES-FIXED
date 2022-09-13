@@ -6,7 +6,8 @@ import {
     getUserOrders, 
     getUserOrder, 
     updateOrder, 
-    deleteOrder 
+    deleteOrder,
+    getOrderRequests
 } from './order.repository.js';
 
 export {
@@ -25,6 +26,7 @@ export {
     getUserOrder,
     updateOrder,
     deleteOrder,
+    getOrderRequests,
 
     // Question
     saveQuestion,

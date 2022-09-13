@@ -86,3 +86,31 @@ export const deleteOrder = (id) =>
     .catch(() =>{
         throw new AppError("Internal server error!", 500);
     });
+
+//Fetch order requests
+export const getOrderRequests = (seller) =>
+    Order.find({seller})
+    .populate("buyer", {
+        _id:1,
+        firstName:1,
+        lastName:1,
+        email:1,
+        contactNo:1
+    })
+    .populate({
+        path:"item",
+        populate:{
+            path:"createdBy",
+            select:{
+                _id:1,
+                firstName:1,
+                lastName:1
+            }
+        }
+    })
+    .then((orders) =>{
+        return Promise.resolve(orders)
+    })
+    .catch(() =>{
+        throw new AppError("Internal server error!", 500);
+    });
