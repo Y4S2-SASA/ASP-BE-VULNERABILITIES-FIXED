@@ -114,3 +114,23 @@ export const getOrderRequests = (seller) =>
     .catch(() =>{
         throw new AppError("Internal server error!", 500);
     });
+
+//Fetch Orders for report
+export const getReportDetails = (startDate, endDate) =>
+    Order.find({createdAt :{
+        $gte: startDate,
+        $lt: endDate
+    }})
+    .populate("buyer", {
+        _id:1,
+        firstName:1,
+        lastName:1,
+        email:1,
+        contactNo:1
+    })
+    .then((orders) =>{
+        return Promise.resolve(orders)
+    })
+    .catch(() =>{
+        throw new AppError("Internal server error!", 500);
+    });

@@ -32,6 +32,7 @@ import {
     updateOrderService, 
     deleteOrderService,
     getOrderRequestsService,
+    getReportDetailsService
 } from './order.service.js';
 
 export {
@@ -57,6 +58,7 @@ export {
     updateOrderService,
     deleteOrderService,
     getOrderRequestsService,
+    getReportDetailsService,
     
     // Question
     saveQuestionService, 

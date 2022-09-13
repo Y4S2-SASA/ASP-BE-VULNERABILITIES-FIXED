@@ -24,6 +24,7 @@ import {
     updateOrder, 
     deleteOrder,
     getOrderRequests, 
+    getReportDetails
 } from './order.controller.js';
 
 
@@ -44,6 +45,7 @@ export {
     updateOrder,
     deleteOrder,
     getOrderRequests,
+    getReportDetails,
 
     // Question
     saveQuestion,

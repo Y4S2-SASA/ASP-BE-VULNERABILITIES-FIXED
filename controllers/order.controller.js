@@ -4,7 +4,8 @@ import {
     getUserOrderService, 
     updateOrderService, 
     deleteOrderService,
-    getOrderRequestsService
+    getOrderRequestsService,
+    getReportDetailsService
 } from "../services/index.js";
 import Success from "../utils/success.js";
 
@@ -82,3 +83,16 @@ export const getOrderRequests = async(req, res) =>{
         res.status(500).json(error.message);
     }
 };
+
+//Get report details controller
+export const getReportDetails = async(req, res) =>{
+    try{
+        const orders = await getReportDetailsService(req.params.startDate, req.params.endDate)
+        orders.length === 0 ?
+            res.status(404).json("No orders are found!")
+        :
+            res.json(Success(orders, "Successfully fetched the orders within the date range!"))
+    }catch(error) {
+        res.status(500).json(error.message);
+    }
+}
