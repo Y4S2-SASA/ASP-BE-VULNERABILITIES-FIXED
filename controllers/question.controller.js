@@ -4,6 +4,7 @@ import {
     getQuestionsService, 
     updateQuestionService, 
     deleteQuestionService,
+    getTagsService,
 } from '../services/index.js';
 import Success from "../utils/success.js";
 
@@ -51,4 +52,13 @@ export const saveQuestion = async (req, res) => {
       res.status(err.status).json(err.message);
     }
   };
+
+  export const getQuestionTags = async (req, res) => {
+    try {
+      const tags = await getTagsService();
+      res.json(Success(tags, "tags fetched"));
+    } catch (err) {
+      res.status(err.status).json(err.message);
+    }
+  }
   

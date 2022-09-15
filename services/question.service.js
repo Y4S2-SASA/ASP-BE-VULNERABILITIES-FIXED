@@ -4,6 +4,7 @@ import {
     getQuestions,
     updateQuestion,
     deleteQuestion,
+    getTags,
 } from '../repository/index.js';
 import AppError from "../utils/appError.js";
 
@@ -52,3 +53,20 @@ export const deleteQuestionService = async (id) => {
         throw new AppError(err.message, err.status);
     }
 };
+
+export const getTagsService = async () => {
+    try {
+        const response = await getTags();
+        const tags = new Map();
+        response.forEach(res => {
+            res.tags.forEach(tag => {
+                const tagCount = tags.get(tag) === undefined ? 0 : tags.get(tag);
+                tags.set(tag, tagCount + 1);
+            })
+        })
+        const res = Object.fromEntries(tags);
+        return Promise.resolve(res);
+    } catch (err) {
+        throw new AppError(err.message, err.status);
+    }
+}
