@@ -54,9 +54,10 @@ export const deleteQuestionService = async (id) => {
     }
 };
 
-export const getTagsService = async () => {
+export const getTagsService = async (data) => {
+    const {startDate, endDate } = data;
     try {
-        const response = await getTags();
+        const response = await getTags(startDate, endDate);
         const tags = new Map();
         response.forEach(res => {
             res.tags.forEach(tag => {
