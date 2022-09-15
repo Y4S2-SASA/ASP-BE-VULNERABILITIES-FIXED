@@ -18,7 +18,8 @@ import {
     getQuestionService, 
     getQuestionsService, 
     updateQuestionService, 
-    deleteQuestionService
+    deleteQuestionService,
+    getTagsService
 } from './question.service.js';
 import {
     saveCommentService, 
@@ -66,6 +67,9 @@ export {
     getQuestionsService, 
     updateQuestionService, 
     deleteQuestionService,
+    getTagsService,
+
+    // Comments
     saveCommentService,
     getCommentsService,
     deleteCommentService

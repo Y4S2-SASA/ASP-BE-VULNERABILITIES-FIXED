@@ -1,5 +1,5 @@
 import { saveItem, getItem, getItems, updateItem, deleteItem } from './item.repository.js';
-import { saveQuestion, getQuestion, getQuestions, updateQuestion, deleteQuestion } from './question.repository.js';
+import { saveQuestion, getQuestion, getQuestions, updateQuestion, deleteQuestion, getTags } from './question.repository.js';
 import { saveComment, getComments, deleteComment } from './comment.repository.js';
 import { 
     saveOrder, 
@@ -36,6 +36,9 @@ export {
     getQuestions,
     updateQuestion,
     deleteQuestion,
+    getTags,
+
+    //Comments
     saveComment,
     getComments,
     deleteComment

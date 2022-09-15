@@ -10,7 +10,8 @@ import {
     getQuestion,
     getQuestions,
     updateQuestion,
-    deleteQuestion
+    deleteQuestion,
+    getQuestionTags
 } from './question.controller.js';
 import {
     saveComment,
@@ -53,6 +54,7 @@ export {
     getQuestions,
     updateQuestion,
     deleteQuestion,
+    getQuestionTags,
 
     // Comments
     saveComment,

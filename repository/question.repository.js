@@ -59,3 +59,12 @@ export const deleteQuestion = (id) =>
     .catch(() => {
       throw new AppError("Internal server error.", 500);
     });
+
+export const getTags = () =>
+    Question.find({}, 'tags')
+    .then((question) => {
+      return Promise.resolve(question);
+    })
+    .catch(() => {
+      throw new AppError("Internal server error hehe.", 500);
+    });
