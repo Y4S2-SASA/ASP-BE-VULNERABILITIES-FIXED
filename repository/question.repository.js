@@ -60,11 +60,17 @@ export const deleteQuestion = (id) =>
       throw new AppError("Internal server error.", 500);
     });
 
-export const getTags = () =>
-    Question.find({}, 'tags')
+export const getTags = (startDate, endDate) => {
+    return Question.find({
+      createdAt: {
+        $gte: new Date(`${startDate} 00:00:00`),
+        $lt: new Date(`${endDate} 00:00:00`)
+      }
+    }, 'tags')
     .then((question) => {
       return Promise.resolve(question);
     })
-    .catch(() => {
-      throw new AppError("Internal server error hehe.", 500);
+    .catch((err) => {
+      throw new AppError(err, 500);
     });
+  }
