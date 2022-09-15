@@ -5,6 +5,6 @@ import {
 
 const tagsRouter = express.Router();
 
-tagsRouter.get("/", getQuestionTags);
+tagsRouter.post("/", getQuestionTags);
 
 export default tagsRouter;

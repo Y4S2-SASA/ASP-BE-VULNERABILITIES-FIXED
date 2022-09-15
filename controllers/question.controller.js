@@ -55,7 +55,7 @@ export const saveQuestion = async (req, res) => {
 
   export const getQuestionTags = async (req, res) => {
     try {
-      const tags = await getTagsService();
+      const tags = await getTagsService(req.body);
       res.json(Success(tags, "tags fetched"));
     } catch (err) {
       res.status(err.status).json(err.message);
