@@ -120,20 +120,18 @@ export const getOrderRequests = (seller) =>
 
 //Fetch Orders for report
 export const getReportDetails = (startDate, endDate) =>
-    Order.find({createdAt :{
-        $gte: startDate,
-        $lt: endDate
-    }})
-    .populate("buyer", {
+    Order.find({ createdAt: {
+        $gte: new Date(`${startDate} 00:00:00`),
+        $lt: new Date(`${endDate} 00:00:00`)
+      }}, "buyer")
+      .populate("buyer", {
         _id:1,
         firstName:1,
         lastName:1,
-        email:1,
-        contactNo:1
     })
     .then((orders) =>{
         return Promise.resolve(orders)
     })
-    .catch(() =>{
+    .catch((error) =>{
         throw new AppError("Internal server error!", 500);
     });

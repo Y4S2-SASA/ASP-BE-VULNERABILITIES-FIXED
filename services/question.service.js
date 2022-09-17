@@ -59,8 +59,8 @@ export const getTagsService = async (data) => {
     try {
         const response = await getTags(startDate, endDate);
         const tags = new Map();
-        response.forEach(res => {
-            res.tags.forEach(tag => {
+        response.forEach(question => {
+            question.tags.forEach(tag => {
                 const tagCount = tags.get(tag) === undefined ? 0 : tags.get(tag);
                 tags.set(tag, tagCount + 1);
             })

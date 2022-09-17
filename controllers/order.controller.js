@@ -87,7 +87,7 @@ export const getOrderRequests = async(req, res) =>{
 //Get report details controller
 export const getReportDetails = async(req, res) =>{
     try{
-        const orders = await getReportDetailsService(req.params.startDate, req.params.endDate)
+        const orders = await getReportDetailsService(req.body)
         orders.length === 0 ?
             res.status(404).json("No orders are found!")
         :
