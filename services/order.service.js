@@ -80,10 +80,17 @@ export const getOrderRequestsService = async (seller) =>{
 };
 
 //Fetch report details service
-export const getReportDetailsService = async(startDate, endDate) =>{
+export const getReportDetailsService = async({startDate, endDate}) =>{
     try{
-        const orders = await getReportDetails(startDate, endDate);
-        return Promise.resolve(orders)
+        const response = await getReportDetails(startDate, endDate);
+        const buyers = new Map();
+        response.forEach(res => {
+            let buyer = res.buyer._id + ',' + res.buyer.firstName + ' ' + res.buyer.lastName;
+            const buyerCount = buyers.get(buyer) === undefined ? 0 : buyers.get(buyer);
+            buyers.set(buyer, buyerCount + 1)
+        })
+        const res = Object.fromEntries(buyers);
+        return Promise.resolve(res);
     }catch(error) {
         throw new AppError(error.message, error.status);
     }

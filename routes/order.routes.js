@@ -17,6 +17,6 @@ orderRouter.get("/:id", getUserOrder);
 orderRouter.put("/:id", updateOrder);
 orderRouter.delete("/:id", deleteOrder);
 orderRouter.get("/requests/:seller", getOrderRequests);
-orderRouter.get("/:startDate/:endDate", getReportDetails);
+orderRouter.post("/report", getReportDetails);
 
 export default orderRouter;
