@@ -17,7 +17,7 @@ export const login = async (req, res) => {
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
 
-		const user = User.findOne({ email: req.body.email });
+		const user = await User.findOne({ email: req.body.email });
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
@@ -42,7 +42,7 @@ export const register = async (req, res) => {
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
 
-		const user = User.findOne({ email: req.body.email });
+		const user = await User.findOne({ email: req.body.email });
 		if (user)
 			return res
 				.status(409)

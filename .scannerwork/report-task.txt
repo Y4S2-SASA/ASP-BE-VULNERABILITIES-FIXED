@@ -2,5 +2,5 @@ projectKey=Automobile-spare-parts-backend
 serverUrl=http://localhost:9000
 serverVersion=9.6.1.59531
 dashboardUrl=http://localhost:9000/dashboard?id=Automobile-spare-parts-backend
-ceTaskId=AYO71dNLy9eXeOkxah0j
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYO71dNLy9eXeOkxah0j
+ceTaskId=AYO76tnSy9eXeOkxah0k
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYO76tnSy9eXeOkxah0k
