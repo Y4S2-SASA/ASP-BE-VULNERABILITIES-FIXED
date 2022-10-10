@@ -1,7 +1,6 @@
 import {User, validate} from "../models/index.js";
 import bcrypt from "bcrypt";
 import Joi from "joi";
-import AppError from "../utils/appError.js";
 import { jsonResponse } from "../utils/serviceUtilities.js";
 
 const validateUserData = (data) => {
@@ -93,27 +92,27 @@ export const updateUser = (req, res) => {
     const getUpdatedData = { new: true };
 
     User.findByIdAndUpdate(id, req.body, getUpdatedData, (error, updatedUser) => {
-        !updatedUser ? 
-            res.status(404)
-                .json(jsonResponse(false, updatedUser, "User not found!")) :
-            error ? 
-                res.status(400)
-                    .json(jsonResponse(false, error, error._message)) :
-                res.status(200)
-                    .json(jsonResponse(true, updatedUser));
+        if(!updatedUser){
+            res.status(404).json(jsonResponse(false, updatedUser, "User not found!"));
+        }else{
+            error?
+                res.status(400).json(jsonResponse(false, error, error._message)) 
+                :
+                res.status(200).json(jsonResponse(true, updatedUser));
+        }          
     });       
 }
 
 export const deleteUser = (req, res) => {
     const id = req.params.id;
     User.findByIdAndDelete(id, (error, deletedUser) => {
-        !deletedUser ? 
-            res.status(404)
-                .json(jsonResponse(false, deletedUser, "User not found!")) :
+        if(!deletedUser){
+            res.status(404).json(jsonResponse(false, deletedUser, "User not found!"));
+        }else{
             error ? 
-                res.status(400)
-                    .json(jsonResponse(false, error, error._message)) :
-                res.status(200)
-                    .json(jsonResponse(true, deletedUser));
+                res.status(400).json(jsonResponse(false, error, error._message)) 
+                :
+                res.status(200).json(jsonResponse(true, deletedUser));
+        }
     });       
 }
