@@ -12,15 +12,6 @@ import AppError from "../utils/appError.js";
 
 //Save order details service
 export const saveOrderService = async (data) =>{
-    const {
-        buyer,
-        item,
-        seller,
-        orderId,
-        quantity,
-        status,
-        total
-    } = data;
     try{
         await saveOrder(data);
         return Promise.resolve("Successfully saved order details!");

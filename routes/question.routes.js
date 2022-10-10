@@ -5,7 +5,6 @@ import {
     getQuestions,
     updateQuestion,
     deleteQuestion,
-    getQuestionTags,
 } from '../controllers/index.js';
 
 const questionRouter = express.Router();
