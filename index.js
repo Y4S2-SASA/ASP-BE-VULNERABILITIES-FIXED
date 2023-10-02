@@ -11,6 +11,20 @@ const App = express();
 App.use(express.json());
 App.use(cors({origin: '*'}));
 
+App.use(
+    helmet({
+      frameguard: {
+        action: 'deny', // Use 'deny' to prevent framing entirely
+      },
+      // Content Security Policy with frame-ancestors directive:
+      contentSecurityPolicy: {
+        directives: {
+          'frame-ancestors': "'none'", // Use "'none'" to disallow all framing
+        },
+      }
+    })
+  );
+  
 connect();
 
 App.use("/api", apiRouter);
