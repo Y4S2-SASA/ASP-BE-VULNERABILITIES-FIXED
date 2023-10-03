@@ -10,7 +10,7 @@ const portCon = chalk.blue.bgWhite.bold;
 const App = express();
 App.use(express.json());
 App.use(cors({origin: '*'}));
-
+App.disable('x-powered-by');
 App.use(
     helmet({
       frameguard: {
