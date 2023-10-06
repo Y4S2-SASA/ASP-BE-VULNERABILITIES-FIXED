@@ -4,13 +4,21 @@ import cors from 'cors'
 import { connect } from './utils/dbConnect.js'
 import apiRouter from './routes/index.js'
 import chalk from 'chalk'
+import csrf from 'csrf';
 
 const portCon = chalk.blue.bgWhite.bold
 
 const App = express()
 App.use(express.json())
-App.use(cors({ origin: '*' }))
+App.use(cors({ origin: 'http://localhost:3000' }))
 App.disable('x-powered-by')
+
+// Enable CSRF protection
+const csrfProtection = csrf({ cookie: true });
+
+// Use the CSRF middleware before the routes
+App.use(csrfProtection);
+
 App.use(
   helmet({
     frameguard: {
