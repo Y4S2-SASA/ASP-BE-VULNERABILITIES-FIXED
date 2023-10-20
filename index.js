@@ -6,16 +6,21 @@ import apiRouter from './routes/index.js'
 import chalk from 'chalk'
 import csrf from 'csurf';
 import helmet from 'helmet'; // Add this line
+import cookieParser from 'cookie-parser'
+import bodyParser from 'body-parser'
 
 const portCon = chalk.blue.bgWhite.bold
 
 const App = express()
 App.use(express.json())
+App.use(bodyParser.urlencoded({ extended: true }))
+App.use(bodyParser.json());
+App.use(cookieParser());
 App.use(cors({ origin: 'http://localhost:3000' }))
 App.disable('x-powered-by')
 
 // Enable CSRF protection
-const csrfProtection = csrf({ cookie: true });
+const csrfProtection = csrf({ cookie: { key: '_csrf' } });
 
 // Use the CSRF middleware before the routes
 // App.use(csrfProtection);
@@ -37,11 +42,11 @@ App.use(
 
 connect()
 
-App.use('/api', apiRouter)
-
-App.get('/', (req, res) => {
-  res.send('Hello World!')
+App.get('/csrf-token', (req, res) => {
+  res.send("ALmGTw9B-ZWbEetQTGGajdcwNzAEYaXxCaIM")
 })
+
+App.use('/api', apiRouter)
 
 const port = process.env.PORT || 3001
 App.listen(
