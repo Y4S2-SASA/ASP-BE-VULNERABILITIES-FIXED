@@ -4,7 +4,8 @@ import cors from 'cors'
 import { connect } from './utils/dbConnect.js'
 import apiRouter from './routes/index.js'
 import chalk from 'chalk'
-import csrf from 'csrf';
+import csrf from 'csurf';
+import helmet from 'helmet'; // Add this line
 
 const portCon = chalk.blue.bgWhite.bold
 
@@ -17,7 +18,7 @@ App.disable('x-powered-by')
 const csrfProtection = csrf({ cookie: true });
 
 // Use the CSRF middleware before the routes
-App.use(csrfProtection);
+// App.use(csrfProtection);
 
 App.use(
   helmet({
