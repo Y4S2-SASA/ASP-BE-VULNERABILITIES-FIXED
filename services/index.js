@@ -11,7 +11,11 @@ import {
     updateUser,
     deleteUser,
     findUser,
-    findUsers
+    findUsers,
+    getGoogleAuthCodeSignin,
+    getGoogleAuthCodeSignup,
+    signupWithGoogle,
+    signinWithGoogle
 } from './user.service.js';
 import {
     saveQuestionService, 
@@ -51,6 +55,10 @@ export {
     deleteUser,
     findUser,
     findUsers,
+    getGoogleAuthCodeSignin,
+    getGoogleAuthCodeSignup,
+    signupWithGoogle,
+    signinWithGoogle,
 
     // Order
     saveOrderService,
